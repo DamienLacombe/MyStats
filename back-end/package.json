@@ -1,0 +1,15 @@
+{
+  "dependencies": {
+    "express": "^4.17.3",
+    "node-fetch": "^2.6.6"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "name": "back-end",
+  "version": "1.0.0",
+  "main": "app.js",
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
