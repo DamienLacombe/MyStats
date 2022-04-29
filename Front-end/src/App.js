@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { ApiAuth } from "./Utils/ApiAuth";
+import './css/reset.css';
 import { getToken } from "./Utils/ApiAuth";
 import Navbar from "./Components/Navbar";
 
