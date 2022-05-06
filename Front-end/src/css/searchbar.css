@@ -1,0 +1,96 @@
+form {
+    margin-top: -150px;
+    display: flex;
+    justify-content: center;
+}
+
+.search {
+    height: 50px;
+    border-radius: 10px 0px 0px 10px;
+    border: 2px solid #0D1D2C; 
+    border-right: none;
+    width: 75%;
+    text-align: center;
+    font-size: 1.4rem;
+    color: #0D1D2C;
+    font-family:'Oswald', sans-serif ;
+    font-weight: 600;
+    box-shadow: 0px 5px 10px rgb(173, 173, 173);
+    max-width: 300px;
+}
+
+.search:focus {
+    background-color: #ffffff;
+    height: 50px;
+    outline: none; 
+    color: #0D1D2C;
+    font-size: 1.4rem;
+}
+
+.search:focus::placeholder {
+    color: transparent;
+}
+
+.search::placeholder {
+    text-align: center;
+    font-size: 1.2rem;
+    color: rgb(162, 162, 162);
+}
+
+.send {
+    position: relative;
+    height: 50px;
+    border-radius: 0px 10px 10px 0px;
+    background-color: #0D1D2C;
+    border: 2px solid #0D1D2C;
+    width: 25%;
+    z-index: 0;
+    box-shadow: 0px 5px 10px rgb(173, 173, 173);
+    max-width: 100px;
+    cursor: pointer;
+}
+
+.send svg {
+    position: static;
+    font-size: 1.5rem;
+    color: #F9D9D7;
+}
+
+@media (min-width: 425px) {
+    #root {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .App {
+        width: 80%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .send::after {
+        content: "Rechercher";
+        color: #F9D9D7;
+        font-weight: 700;
+        font-size: 1.4rem;
+    }
+
+    form {
+        width: 100%;
+    }
+
+    .search {
+        font-size: 2rem;
+    }
+    .search::placeholder {
+        font-size: 2rem;
+    }
+
+    .search:focus {
+        font-size: 2rem;
+    }
+
+}
+
+

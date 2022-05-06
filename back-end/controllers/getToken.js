@@ -29,3 +29,27 @@ exports.getToken = (req,res,next) => {
     })
     
 }
+
+exports.getProfil = (req,res,next) => {
+    const {token, pseudo} = req.body;
+    console.log(req.body);
+    const url = new URL(
+        `https://osu.ppy.sh/api/v2/users/${pseudo}`
+    );
+    
+   
+    let headers = {
+        "Content-Type": "application/json",
+        "Accept": "application/json",
+        "Authorization": `Bearer ${token}`,
+    };
+    
+    fetch(url, {
+        method: "GET",
+        headers,
+    })
+    .then(response => response.json())
+    .then(profil => {
+        res.status(200).json(profil)
+    })   
+}
