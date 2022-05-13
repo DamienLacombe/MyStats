@@ -32,7 +32,7 @@ exports.getToken = (req,res,next) => {
 
 exports.getProfil = (req,res,next) => {
     const {token, pseudo} = req.body;
-    console.log(req.body);
+   
     const url = new URL(
         `https://osu.ppy.sh/api/v2/users/${pseudo}`
     );
@@ -50,6 +50,39 @@ exports.getProfil = (req,res,next) => {
     })
     .then(response => response.json())
     .then(profil => {
+        res.status(200).json(profil)
+    })   
+}
+
+exports.getBestScores = (req,res,next) => {
+    const {token, userId} = req.body;
+    console.log(token, userId);
+    const url = new URL(
+        `https://osu.ppy.sh/api/v2/users/${userId}/scores/best/`
+    );
+    
+   
+    let headers = {
+        "Content-Type": "application/json",
+        "Accept": "application/json",
+        "Authorization": `Bearer ${token}`,
+    };
+
+    let params = {
+        "mode": "osu",
+        "limit": "100",
+    };
+    
+    Object.keys(params)
+        .forEach(key => url.searchParams.append(key, params[key]));
+    
+    fetch(url, {
+        method: "GET",
+        headers,
+    })
+    .then(response => response.json())
+    .then(profil => {
+        console.log(profil);
         res.status(200).json(profil)
     })   
 }

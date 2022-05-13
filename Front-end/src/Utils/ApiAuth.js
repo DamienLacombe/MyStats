@@ -1,6 +1,6 @@
 export const getToken = () => {
 
-    return fetch("http://localhost:4200/api/getToken")
+    return fetch("http://localhost:4200/api/getApi")
         .then(resp => resp.json())
         .then(token => {
             return token
@@ -9,7 +9,6 @@ export const getToken = () => {
 
 export const getProfil = (e, token, pseudo) => {
 
-    console.log(token);
     e.preventDefault()
 
     const body = {
@@ -17,7 +16,7 @@ export const getProfil = (e, token, pseudo) => {
         pseudo: pseudo
     }
 
-    return fetch("http://localhost:4200/api/getToken", {
+    return fetch("http://localhost:4200/api/getApi", {
 
         headers: {
             'Accept': 'application/json',
@@ -29,6 +28,31 @@ export const getProfil = (e, token, pseudo) => {
     .then(resp => resp.json())
     .then(profil => {
         
-        return profil
+        return profil;
+    });
+}
+
+export const getBestScores = (token, userId) => {
+
+    console.log(token);
+
+    const body = {
+        token: token,
+        userId: userId
+    }
+
+    return fetch("http://localhost:4200/api/getApi/scores", {
+
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        method: "post",
+        body: JSON.stringify(body)
+    })
+    .then(resp => resp.json())
+    .then(scores => {
+        
+        return scores;
     });
 }

@@ -3,7 +3,7 @@ const express = require("express");
 const app = express()
 app.use(express.json())
 
-const getToken = require("./routes/getToken.route")
+const getApi = require("./routes/getApi.route")
 
 app.use((req, res, next) => {
 
@@ -13,7 +13,7 @@ app.use((req, res, next) => {
     next();
 });
   
-app.use("/api/getToken", getToken);
+app.use("/api/getApi", getApi);
 
 
 module.exports = app;

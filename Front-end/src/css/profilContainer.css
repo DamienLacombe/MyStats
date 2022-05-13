@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap');
+
 .profil-container {
     display: flex;
     flex-direction: column;
@@ -8,110 +9,98 @@
     border-radius: 5px;
 }
 
-.profil-container > * {
-    color: #F9D9D7;
-    font-size: 1.4rem;
+.profil-container  * {
+    font-size: 1.2rem;
+    color: #E2BFA7;
     font-family: 'Oswald', sans-serif;
 }
 
 .profil-head img {
     width: 130px;
     border-radius: 20px;
+    margin: 15px 10px 10px 10px;
+    
 }
+
 .profil-head {
-    width: 100%;
-    background-image: none !important;
     display: flex;
-    align-items: flex-start;
     flex-wrap: wrap;
+    width: 100%;
     background-color: #0D1D2C;
-    padding: 15px;
-    border-radius: 15px;
-}
-
-.name {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    width: 140px;
-    font-size: 1.8rem;
-    justify-content: space-between;
-    padding-left: 10px;
-    height: 130px;
-}
-
-.name h1 {
-    color: #E2BFA7;
+    border-radius: 10px;
 }
 
 .head {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    justify-content: space-between;
+    height: 130px;
+    width: 150px;
 }
 
-.head :first-child {
-    font-weight: 700;
-    font-size: 1.8rem;
-}
-
-.head :last-child {
-    font-size: 1.2rem;
-}
-
-.name img {
-    margin-right: 10px;
-}
-
-.head-info {
+.rank-container {
     display: flex;
     flex-direction: column;
-
+    align-items: flex-start;
 }
 
-.profil-container .flag {
-    width: 22px;
+.rank-container  img {
+    width: 25px;
     border-radius: 0;
+    
 }
-.rank img {
-    width: 20px;
-    margin-right: 6px;
-}
-.rank {
+
+.rank-container > p {
     display: flex;
-    align-items: flex-end;
-    font-size: 1.2rem;
-    font-weight: 500;
+    align-items: center;
+    margin: 5px 5px 0 0;
+}
+
+.rank-container > p img {
+    margin: 0 8px 0 0 ;
+}
+
+.lvl {
+    border: 2px solid #E2BFA7;
+    padding: 6px;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 600;
 }
 
 .pp {
-    text-align: center;
-    width: 130px;
-    font-size: 1.3rem;
+    font-size: 1.4rem;
     font-weight: 600;
-    color: #E2BFA7;
+    margin: 0px 0 0 10px;
 }
 
-.profil-container .lvl {
-    padding: 5px;
-    border: solid 2px #E2BFA7;
-    font-size: 1rem;
-    border-radius: 8px;
+.head h1 {
+    font-size: 1.6rem;
+    font-weight: 600;
 }
 
-.acc {
-    margin-top: 10px;
+.lvlpp {
+    margin: 0 0 15px 10px;
 }
 
-.title {
-    margin-left: 0;
+.profil-container ul {
+    display: flex;
+    flex-direction: row;
+    
+}
+.profil-container li img {
+    width: 40px;
 }
 
-.flag-container {
-    margin-top: 4px;
-} 
-
-.profil-container .head h1 {
-    margin-left: 2px;
-    font-size: 1.3rem;
+.profil-container li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 0 25px 0;
 }
+
+.profil-container li p {
+    font-size: 1.1rem;
+}
+
