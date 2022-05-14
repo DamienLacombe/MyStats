@@ -34,10 +34,14 @@ function App() {
     useEffect(() => {
         
         Array.isArray(scores) && setTotalStats(sortingStats(scores)) 
+        console.log();
     }, [scores])
 
     useEffect(() => {
-        calculateFinalStats(totalStats)
+        if (totalStats !== undefined) {
+             calculateFinalStats(totalStats)
+        }
+       
     }, [totalStats])
 
     return (
