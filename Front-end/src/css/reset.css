@@ -30,7 +30,7 @@ ol, ul {
 	list-style: none;
 }
 
-html, body, .App, #root {
+html, body {
     height: 100%;
 }
 

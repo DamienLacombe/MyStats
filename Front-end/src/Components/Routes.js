@@ -14,8 +14,8 @@ const AppRouter = () => {
                 <Route path="/clips" element={<Clips/>}/>
                 <Route path="/Profil" element={<Profil/>}/>
                 <Route path="/Login" element={<Login/>}/>
-                
             </Routes>
+
         </Router>
     )
 }

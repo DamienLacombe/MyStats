@@ -59,7 +59,7 @@ export const calculateFinalStats = (stats) => {
         average : calculateAverage(stats.star_rating).toFixed(2)
     }
     finalStats.pp = {
-       min : minMax(stats.pp)[0].toFixed(0),
+        min : minMax(stats.pp)[0].toFixed(0),
         max : minMax(stats.pp)[1].toFixed(0),
         average : calculateAverage(stats.pp).toFixed(0)
     }
@@ -81,8 +81,7 @@ export const calculateFinalStats = (stats) => {
     finalStats.rank = countRepeat(stats.rank)
     finalStats.creator = countRepeat(stats.creator)
 
-    console.log(finalStats);
-
+    return finalStats;
 }
 
 function calculateAverage(array) {
@@ -91,9 +90,11 @@ function calculateAverage(array) {
 }
 
 function minMax(array) {
-    const min = Math.min(...array);
-    const max = Math.max(...array);
-    return [min, max];
+    if(Array.isArray(array)) {
+        const min = Math.min(...array);
+        const max = Math.max(...array);
+        return [min, max];
+    }
 }
 
 function countRepeat(array) {

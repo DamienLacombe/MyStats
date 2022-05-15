@@ -14,6 +14,7 @@ function App() {
     const [token, setToken] = useState();
     const [profil, setProfil] = useState();
     const [scores, setScores] = useState();
+    const [finalStats, setFinalStats] = useState();
     const [totalStats, setTotalStats] = useState();
    
   
@@ -34,24 +35,22 @@ function App() {
     useEffect(() => {
         
         Array.isArray(scores) && setTotalStats(sortingStats(scores)) 
-        console.log();
+        console.log(profil);
     }, [scores])
 
     useEffect(() => {
+
         if (totalStats !== undefined) {
-             calculateFinalStats(totalStats)
+           setFinalStats(calculateFinalStats(totalStats)) 
         }
-       
     }, [totalStats])
 
     return (
 
         <div className="App">
-            <Navbar></Navbar>
             {
-                chargedProfil ? <ProfilContainer profil={profil} scores={scores}></ProfilContainer>: <SearchBar token={token} setProfil={setProfil} setChargedProfil={setChargedProfil}></SearchBar>
+                chargedProfil ? <ProfilContainer profil={profil} scores={scores} finalStats={finalStats} token={token} setProfil={setProfil} setChargedProfil={setChargedProfil}></ProfilContainer>: <SearchBar token={token} setProfil={setProfil} setChargedProfil={setChargedProfil}></SearchBar>
             }
-            
         </div>
     );
 }
