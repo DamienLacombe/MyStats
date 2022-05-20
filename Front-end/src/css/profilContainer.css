@@ -163,6 +163,7 @@ aside .second-stats li :last-child {
     }
     .profil-container {
         padding: 15px;
+        width: 630px;
         max-width: 630px;
         flex-direction: row;
         justify-content: space-between;

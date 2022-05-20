@@ -37,7 +37,7 @@ export const sortingStats = (scores) => {
 export const calculateFinalStats = (stats) => {
 
     let finalStats = {}
-
+    console.log("ok");
    /* 
         ar, cs, hp, od => moyenne
         total_length, star_rating, pp, max_combo, bpm, accuracy => min , max , moyenne 
@@ -81,6 +81,7 @@ export const calculateFinalStats = (stats) => {
     finalStats.rank = countRepeat(stats.rank)
     finalStats.creator = countRepeat(stats.creator)
 
+    console.log(finalStats);
     return finalStats;
 }
 
@@ -115,6 +116,7 @@ function countRepeat(array) {
             array.splice(0, 1)
         }
     }
+    console.log(creator);
     return creator;
 }
 

@@ -1,0 +1,23 @@
+.maps-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+.map {
+    display: flex;
+    flex-direction: column;
+    max-width: 300px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 20px;
+}
+
+.map ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    height: fit-content;
+}
+

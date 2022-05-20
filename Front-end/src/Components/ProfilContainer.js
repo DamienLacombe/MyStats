@@ -93,7 +93,7 @@ const ProfilContainer = (props) => {
                 </ul>
             </aside>
 
-            <ChartComponent rank={{ rank: { b: 15, k: 65, l: 63, m: 9 } }}></ChartComponent>
+            {/* <ChartComponent rank={props.finalStats}></ChartComponent> */}
         </div>
     )
 }
