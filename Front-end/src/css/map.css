@@ -1,17 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap');
+
 .maps-container {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    max-width: 320px;
     
 }
 
 .map {
     display: flex;
     flex-direction: column;
-    max-width: 300px;
+    justify-content: space-between;
+    width: 300px;
     background-size: cover;
     background-position: center;
     border-radius: 20px;
+    margin-top: 20px;
+    box-shadow: inset 1px 1px 40px black;
+    padding: 15px;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.7));
+}
+
+.map * {
+    font-family: 'Oswald', sans-serif;
+    color: white;
+    font-size: 1.3rem;
+}
+
+.map p {
+    text-shadow: black 0.1em 0.1em 0.1em;
 }
 
 .map ul {
@@ -21,3 +41,62 @@
     height: fit-content;
 }
 
+.map ul li {
+    margin-bottom: 0;
+    height: fit-content;
+    
+}
+.top, .bot {
+    display: flex;
+    justify-content: space-between;
+}
+
+.top, .mid {
+    margin-bottom: 40px;
+}
+
+.top div {
+    display: flex;
+}
+
+.mid div {
+    display: flex;
+}
+
+.mid p {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    height: 25px;
+}
+
+.maps-container .map svg {
+   margin-left: 5px; 
+   display: block;
+   font-size: 1.1rem;
+   filter: drop-shadow(0px 0px 2px black)
+}
+
+.row {
+    display: flex;
+    align-items: center;
+}
+
+.map img {
+    margin-right: 5px;
+}
+.top path {
+    fill: rgb(255, 217, 0);
+}
+.map img {
+    width: 48px;
+    height: auto;
+    filter: drop-shadow(0px 0px 5px black)
+}
+
+@media (min-width: 650px) { 
+    .maps-container {
+        max-width: 630px;
+        justify-content: space-between;
+    }
+}
