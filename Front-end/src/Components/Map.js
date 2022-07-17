@@ -14,7 +14,7 @@ const Maps = (props) => {
      C: "https://osu.ppy.sh/assets/images/GradeSmall-C.d785e824.svg"
   }
   
-  console.log(props.mapInfo);
+  
   return (
     <div className='map' style={{ 
       backgroundImage: `url("${Object.values(props.mapInfo.beatmapset.covers)[3]}")` 
@@ -28,21 +28,21 @@ const Maps = (props) => {
         </div>
         <div className='mid'>
             <div>
-                <p>{props.mapInfo.beatmapset.title}</p>
-                <p>{props.mapInfo.beatmapset.artist}</p>
+                <p className='title' data-title='Titre'>{props.mapInfo.beatmapset.title} /</p>
+                <p className='title' data-title='Artiste'>/ {props.mapInfo.beatmapset.artist}</p>
             </div>
             <div className='middle'>
-                <p>[{props.mapInfo.beatmap.version}]</p>
-                <p>{props.mapInfo.beatmapset.creator}</p>
+                <p className='title' data-title='Difficulté'>[{props.mapInfo.beatmap.version}] /</p>
+                <p className='title' data-title='Createur'>{props.mapInfo.beatmapset.creator}</p>
             </div>
             
         </div>
             <ul className='bot'>
-                <li>{props.mapInfo.beatmap.cs}</li>
-                <li>{props.mapInfo.beatmap.drain}</li>
-                <li>{props.mapInfo.beatmap.accuracy}</li>
-                <li>{props.mapInfo.beatmap.ar}</li>
-                <li><img src="https://osustats.click/img/info/bpm.svg" alt="" />{props.mapInfo.beatmap.bpm}</li>
+                <li><span>CS</span>{props.mapInfo.beatmap.cs}</li>
+                <li><span>HP</span>{props.mapInfo.beatmap.drain}</li>
+                <li><span>OD</span>{props.mapInfo.beatmap.accuracy}</li>
+                <li><span>AR</span>{props.mapInfo.beatmap.ar}</li>
+                <li><span>BPM</span>{props.mapInfo.beatmap.bpm}</li>
                 <li>{props.mapInfo.total_length}</li>
             </ul>
         </div>

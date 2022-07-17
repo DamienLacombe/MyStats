@@ -45,7 +45,7 @@ export const calculateFinalStats = (stats) => {
    */
 
     finalStats.ar = calculateAverage(stats.ar).toFixed(2);
-    finalStats.cs = calculateAverage(stats.od).toFixed(2);
+    finalStats.cs = calculateAverage(stats.cs).toFixed(2);
     finalStats.hp = calculateAverage(stats.hp).toFixed(2);
     finalStats.od = calculateAverage(stats.od).toFixed(2);
     finalStats.total_length = {

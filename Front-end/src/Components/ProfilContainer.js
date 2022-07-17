@@ -2,10 +2,12 @@ import React from 'react';
 import "../css/profilContainer.css";
 import ChartComponent from './ChartComponent';
 import SearchBar from './SearchBar';
+import DynamicArray from './DynamicArray';
 
 
 const ProfilContainer = (props) => {
-    console.log(props);
+    
+    console.log(props)
     return (
         <div className='profil-container'>
 
@@ -64,7 +66,7 @@ const ProfilContainer = (props) => {
                     </li>
                     <li>
                         <p>Nombres de parties</p>
-                        <p>{props.profil.statistics.play_time}</p>
+                        <p>{props.profil.statistics.play_count}</p>
                     </li>
                     <li>
                         <p>Nombre de clics</p>
@@ -93,7 +95,16 @@ const ProfilContainer = (props) => {
                 </ul>
             </aside>
 
-            {/* <ChartComponent rank={props.finalStats}></ChartComponent> */}
+            <div className='graphics-container'>
+            {
+                props.finalStats !== undefined ? <DynamicArray rank={props.finalStats}></DynamicArray> : ""
+            }    
+            {
+                props.finalStats !== undefined ? <ChartComponent rank={props.finalStats}></ChartComponent> : ""
+            }    
+            </div>
+
+           
         </div>
     )
 }

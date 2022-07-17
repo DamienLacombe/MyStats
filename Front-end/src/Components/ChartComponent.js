@@ -10,7 +10,9 @@ function ChartComponent(props) {
     console.log(props);
     const [state, setState] = useState(null);
     const [options, setOptions] = useState()
+    
 
+    
     useEffect(() => {
         
         /**
@@ -23,7 +25,7 @@ function ChartComponent(props) {
          */
         
         const data = {
-            labels: ["k", "c", "o", "n"],
+            labels: [...Object.keys(props.rank.rank)],
             datasets: [
             {
                 label: '# of Votes',
@@ -46,10 +48,11 @@ function ChartComponent(props) {
             plugins: {  // 'legend' now within object 'plugins {}'
                 legend: {
                   labels: {
-                    color: "blue",  // not 'fontColor:' anymore
+                    color: "White",  // not 'fontColor:' anymore
                     // fontSize: 18  // not 'fontSize:' anymore
                     font: {
-                      size: 18 // 'size' now within object 'font {}'
+                      size: 18, // 'size' now within object 'font {}'
+                     
                     }
                   }
                 }
@@ -58,7 +61,7 @@ function ChartComponent(props) {
         setOptions(options)
         setState(data);
     }, []);
-    console.log(state)
+    
     return <>
     {
        state && <Pie data={state} options={options}/>

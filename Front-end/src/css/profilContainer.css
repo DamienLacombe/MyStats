@@ -32,6 +32,11 @@
     max-width: 300px;
 }
 
+canvas {
+    max-width: 340px;
+    max-height: 340px;
+}
+
 .head {
     display: flex;
     flex-direction: column;

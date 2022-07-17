@@ -19,11 +19,18 @@
     background-position: center;
     border-radius: 20px;
     margin-top: 20px;
-    box-shadow: inset 1px 1px 40px black;
+    box-shadow: inset 1px 1px 100px black;
     padding: 15px;
     background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.7));
+    transition: 0.4s;
+    
 }
 
+.map:hover {
+    
+    transform: scale(1.02);
+    cursor: pointer;
+}
 .map * {
     font-family: 'Oswald', sans-serif;
     color: white;
@@ -31,17 +38,19 @@
 }
 
 .map p {
-    text-shadow: black 0.1em 0.1em 0.1em;
+    text-shadow: black 0.1rem 0.1rem 0.1em;
 }
 
 .map ul {
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: space-between;
     height: fit-content;
 }
 
 .map ul li {
+    display: flex;
+    align-items: center;
     margin-bottom: 0;
     height: fit-content;
     
@@ -93,6 +102,50 @@
     height: auto;
     filter: drop-shadow(0px 0px 5px black)
 }
+
+.map span {
+    font-size: 0.7rem;
+    font-weight: 600px;
+    display: flex;
+    align-items: center;
+    color: #F9D9D7;
+    background-color: #526779;
+    border-radius: 5px;
+    padding: 5px;
+    margin-right: 4px;
+}
+
+.map li {
+    font-size: 1.2rem;
+    
+}
+
+.title {
+    position: relative;
+    
+}
+
+.mid p:hover {
+    overflow: visible !important;
+    background-color: rgb(27, 27, 27);
+    color: white;
+    z-index: 20;
+}
+.title:hover::after {
+    content: attr(data-title);
+    border-radius: 3px;
+            padding: 5px;
+            max-width: 150px;
+            border: 1px solid #000;
+            position: absolute;
+            top: -35px;
+            left: -0px;
+            background: #dadada;
+            color: rgb(41, 41, 41);
+            text-shadow: none;
+            
+}
+ 
 
 @media (min-width: 650px) { 
     .maps-container {
