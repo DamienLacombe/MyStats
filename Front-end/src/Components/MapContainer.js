@@ -1,19 +1,28 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Map from './Map';
-import "../css/map.css"
+import "../css/map.css";
+import { triMap } from '../Utils/CreateStats';
 const MapContainer = (props) => {
 
-    
+    const [maps, setMaps] = useState()
+
+    useEffect(()=> {
+        setMaps(triMap(props.maps))
+    }, [])
+    useEffect(()=> {
+        setMaps(triMap(props.maps))
+    }, [props])
+
 
     return (
         <div className='maps-container'>
             {
-                props.maps.map((map, index) => {
-                    return <Map key={index} mapInfo={map}/>
+                maps?.map((map) => {
+                    return <Map key={map.id} mapInfo={map}/>
                 })
             }
         </div>
     )
 }
 
-export default MapContainer
+export default MapContainer;

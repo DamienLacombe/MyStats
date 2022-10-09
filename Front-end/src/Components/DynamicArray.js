@@ -1,16 +1,76 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState} from "react";
 import Array from "./Array";
 
 const DynamicArray = (props) => {
-    console.log(props);
+  
   const [smallDevice, setSmallDevice] = useState()
-  const [obj, setObj] = useState({arr : {
-    Accuracy: props.rank.accuracy,
-    Bpm: props.rank.bpm,
-    Combo: props.rank.max_combo,
-    Difficulté: props.rank.star_rating,
-    Temps: props.rank.total_length
-  }})
+  const [obj, setObj] = useState({
+    Accuracy: { 
+      category : "Accuracy",
+      interval : props.rank.accuracy 
+    },
+    Bpm: {
+      category : "Bpm",
+      interval : props.rank.bpm
+    },  
+    Combo: {
+      category : "Combo",
+      interval : props.rank.max_combo
+    },     
+    Difficulty: {
+      category : "Difficulté",
+      interval : props.rank.star_rating
+    }, 
+    Temps: {
+      category : "Temps",
+      interval : props.rank.total_length
+    },
+    pp: {
+      category : "PP",
+      interval : props.rank.pp
+    },
+    ar: {
+      category : "AR",
+      interval : props.rank.ar
+    },
+    
+  })
+
+  useEffect(() => {
+    setObj({
+      Accuracy: { 
+      category : "Accuracy",
+      interval : props.rank.accuracy 
+    },
+    Bpm: {
+      category : "Bpm",
+      interval : props.rank.bpm
+    },  
+    Combo: {
+      category : "Combo",
+      interval : props.rank.max_combo
+    },     
+    Difficulty: {
+      category : "Difficulté",
+      interval : props.rank.star_rating
+    }, 
+    Temps: {
+      category : "Temps",
+      interval : props.rank.total_length
+    },
+    pp: {
+      category : "PP",
+      interval : props.rank.pp
+    },
+    ar: {
+      category : "AR",
+      interval : props.rank.ar
+    },
+    })
+   
+  }, [props])
+
+  const [lineNbr, setLineNbr] = useState(Object.keys(obj).length)
 
   useEffect(() => {
     if (window.innerWidth < 650) {
@@ -18,6 +78,7 @@ const DynamicArray = (props) => {
     } else {
       setSmallDevice(false)
     }
+
   }, [])
 
   window.addEventListener("resize", () => {
@@ -31,7 +92,7 @@ const DynamicArray = (props) => {
   return (
     <>
       {
-        smallDevice ? <Array array={[Object.keys(Object.values(Object.values(obj)[0])[0]).length, Object.keys(Object.values(obj)[0]).length]} /> : <Array array={[Object.keys(Object.values(obj)[0]).length, Object.keys(Object.values(Object.values(obj)[0])[0]).length]}/>
+        <Array stats={obj} lineNbr={lineNbr} smallDevice={smallDevice}/> 
       }
     </> 
   );

@@ -1,6 +1,7 @@
 
 export const sortingStats = (scores) => {
     let i;
+    
     const stats = {
         accuracy : [],
         max_combo : [],
@@ -29,21 +30,35 @@ export const sortingStats = (scores) => {
         stats.hp.push(scores[i].beatmap.drain);
         stats.total_length.push(scores[i].beatmap.total_length);
         stats.creator.push(scores[i].beatmapset.creator);
+        if (scores[i].mods.filter(mod => mod === "HR").length > 0) {
+            stats.cs[i] = stats.cs[i] * 1.3;
+            stats.ar[i] = stats.ar[i] * 1.4 < 10 ? stats.ar[i] * 1.4 : 10;
+            stats.hp[i] = stats.hp[i] * 1.4;
+            stats.od[i] = stats.od[i] * 1.4; 
+        }
+        if (scores[i].mods.filter(mod => mod === "EZ").length > 0) {
+            stats.cs[i] = stats.cs[i] * 0.5;
+            stats.ar[i] = stats.ar[i] * 0.5 ;
+            stats.hp[i] = stats.hp[i] * 0.5;
+            stats.od[i] = stats.od[i] * 0.5; 
+        }
+        if (scores[i].mods.filter(mod => mod === "DT").length > 0 || scores[i].mods.filter(mod => mod === "NC").length > 0) {
+            stats.bpm[i] = stats.bpm[i] * 1.5;
+            stats.ar[i] = ((stats.ar[i] * 2) + 13) / 3;
+        }
+        
     }
-
     return stats;
 };
 
 export const calculateFinalStats = (stats) => {
-
+    
     let finalStats = {}
-    console.log("ok");
    /* 
         ar, cs, hp, od => moyenne
         total_length, star_rating, pp, max_combo, bpm, accuracy => min , max , moyenne 
         rank, creator => nom + nombre d'occurence (string)
    */
-
     finalStats.ar = calculateAverage(stats.ar).toFixed(2);
     finalStats.cs = calculateAverage(stats.cs).toFixed(2);
     finalStats.hp = calculateAverage(stats.hp).toFixed(2);
@@ -81,7 +96,6 @@ export const calculateFinalStats = (stats) => {
     finalStats.rank = countRepeat(stats.rank)
     finalStats.creator = countRepeat(stats.creator)
 
-    console.log(finalStats);
     return finalStats;
 }
 
@@ -116,7 +130,7 @@ function countRepeat(array) {
             array.splice(0, 1)
         }
     }
-    console.log(creator);
+    
     return creator;
 }
 
@@ -125,5 +139,87 @@ function toMinutes(secondes) {
     let sec = Math.floor(secondes % 60) / 100
     return min + sec;
 }
+
+export function triCreator(creators) {
+   
+    const sortDesc = (a, b) => b[1] - a[1];
+    
+    return creators.sort(sortDesc).splice(0,8)
+} 
+
+export function triMap(maps) {
+    
+    const sortDesc = (a, b) => b.pp - a.pp;
+    return maps.sort(sortDesc)
+}
+
+export function calculateMapStatsWithMods(stat, mods) {
+       
+    let ar = stat[1];  
+ 
+    if (mods.length === 0) {
+
+        return stat[1];
+
+    } else if (stat[0] === "cs") {
+        
+        if (mods.filter(mod => mod === "HR").length > 0) { 
+            return stat[1] * 1.3;
+        }
+        else if (mods.filter(mod => mod === "EZ").length > 0) { 
+            return stat[1] * 0.5;
+        } else return stat[1]
+
+    } else if (stat[0] === "accuracy") {
+        
+        if (mods.filter(mod => mod === "HR").length > 0) { 
+            return stat[1] * 1.4 < 10 ? stat[1] * 1.4 : 10;
+        }
+        else if (mods.filter(mod => mod === "EZ").length > 0) { 
+            return stat[1] * 0.5;
+        } else return stat[1]
+
+    } else if (stat[0] === "bpm") {
+        
+        if (mods.filter(mod => mod === "DT").length > 0 || mods.filter(mod => mod === "NC").length > 0) { 
+            return stat[1] * 1.5;
+        } else return stat[1]
+    } else if (stat[0] === "drain") {
+         
+        if (mods.filter(mod => mod === "HR").length > 0) { 
+            return stat[1] * 1.4;
+        }
+        else if (mods.filter(mod => mod === "EZ").length > 0) { 
+            return stat[1] * 0.5;
+        } else return stat[1]
+
+    } else if (stat[0] === "ar") {
+       
+        if (mods.filter(mod => mod === "HR").length > 0) { 
+            
+            ar = stat[1] * 1.4 < 10 ? stat[1] * 1.4 : 10;
+            
+        }
+        if (mods.filter(mod => mod === "EZ").length > 0) { 
+            ar = stat[1] * 0.5;
+        }
+
+        if (mods.filter(mod => mod === "DT").length > 0 || mods.filter(mod => mod === "NC").length > 0) { 
+            ar = ((ar * 2) + 13) / 3;
+        }
+
+        return ar;
+    } 
+}
+
+
+
+// export async function recalculStarRating(mapId, modsActive) {
+
+//     const starRating = await calculateStarRating(mapId, modsActive);    
+    
+//     console.log(starRating);
+
+// } 
 
 

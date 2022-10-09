@@ -36,6 +36,8 @@ form {
     color: rgb(162, 162, 162);
 }
 
+
+
 .send {
     position: relative;
     height: 50px;
@@ -68,6 +70,12 @@ form {
         flex-direction: column;
         align-items: center;
     }
+
+    .send svg {
+    position: static;
+    font-size: 0rem;
+    color: #F9D9D7;
+}
 
     .send {
         display: flex;

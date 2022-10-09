@@ -34,8 +34,6 @@ export const getProfil = (e, token, pseudo) => {
 
 export const getBestScores = (token, userId) => {
 
-    console.log(token);
-
     const body = {
         token: token,
         userId: userId

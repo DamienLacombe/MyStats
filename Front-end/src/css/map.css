@@ -20,7 +20,7 @@
     border-radius: 20px;
     margin-top: 20px;
     box-shadow: inset 1px 1px 100px black;
-    padding: 15px;
+    padding: 15px  15px 15px 25px;
     background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.7));
     transition: 0.4s;
     
@@ -146,7 +146,39 @@
             
 }
  
+.map .top-left {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
+.map {
+    position: relative;
+}
+
+.map .mods-container {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    justify-content: center;
+    align-items: center;
+    left: -20px;
+    height: 205.2px;
+    gap: 15px;
+}
+
+.map .mods-container img {
+    transform: translateY(-44%);
+    width: 40px;
+}
+
+.top-left > div{
+     display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 @media (min-width: 650px) { 
     .maps-container {
         max-width: 630px;

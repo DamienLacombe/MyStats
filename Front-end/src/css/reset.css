@@ -32,13 +32,75 @@ ol, ul {
 
 html, body {
     height: 100%;
+	background-color: rgb(50, 50, 50)!important;
 }
 
 * {
     box-sizing: border-box;
+	text-decoration: none;
 }
 
 button {
 	border: none;
 	background-color: transparent;
 }
+
+.loader {
+	background-color: rgb(27, 27, 27);
+	width: 100vw;
+	max-height: 0vh;
+  min-height: 0vh;
+	position: fixed;
+	z-index: 3;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+  transition: .8s;
+  overflow: hidden;
+}
+
+.loader.active {
+    max-height: 100vh;
+    min-height: 100vh;
+}
+
+.loader svg {
+	width: 400px;
+  max-width: 90vw;
+	z-index: 30;
+	
+	transform: translateY(-50%);
+}
+
+ /* Google chrome */
+      @-webkit-keyframes svg-text-anim {
+       40% {
+          stroke-dashoffset: 0;
+          fill: transparent;
+        }
+        60% {
+          stroke-dashoffset: 0;
+          fill: #f9d9d7;
+        }
+        100% {
+          stroke-dashoffset: 0;
+          fill: #f9d9d7;
+        }
+        
+    }
+    /* Most browsers */
+    @keyframes svg-text-anim {
+       40% {
+          stroke-dashoffset: 0;
+          fill: transparent;
+        }
+        60% {
+          stroke-dashoffset: 0;
+          fill: #f9d9d7;
+        }
+        100% {
+          stroke-dashoffset: 0;
+          fill: #f9d9d7;
+        }
+        
+    }

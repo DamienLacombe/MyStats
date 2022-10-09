@@ -14,7 +14,9 @@ const SearchBar = (props) => {
         <form onSubmit={(e) => {
             getProfil(e, props.token, pseudo)
             .then(profil => props.setProfil(profil))
-            .then(() => props.setChargedProfil(true))
+            .then(() => {
+                props.charged !== true && props.setChargedProfil(true)
+            } )
         }}>
             <input type="text" placeholder='Pseudo...' className='search' onChange={(e) => setPseudo(e.target.value)}/>
             <button type='submit' className='send'><FontAwesomeIcon icon={faSearch}></FontAwesomeIcon></button>

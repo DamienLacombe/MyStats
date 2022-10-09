@@ -5,6 +5,8 @@ exports.getToken = (req,res,next) => {
     const url = new URL(
         "https://osu.ppy.sh/oauth/token"
     );
+
+
     
     let headers = {
       
@@ -36,8 +38,7 @@ exports.getProfil = (req,res,next) => {
     const url = new URL(
         `https://osu.ppy.sh/api/v2/users/${pseudo}`
     );
-    
-   
+      
     let headers = {
         "Content-Type": "application/json",
         "Accept": "application/json",
@@ -50,6 +51,7 @@ exports.getProfil = (req,res,next) => {
     })
     .then(response => response.json())
     .then(profil => {
+        
         res.status(200).json(profil)
     })   
 }

@@ -3,19 +3,19 @@ import "../css/profilContainer.css";
 import ChartComponent from './ChartComponent';
 import SearchBar from './SearchBar';
 import DynamicArray from './DynamicArray';
+import LineChart from './LineChart';
 
 
 const ProfilContainer = (props) => {
     
-    console.log(props)
+     
     return (
         <div className='profil-container'>
-
             <div>
                 <div className='profil-head'>
-                    <img src={props.profil.avatar_url} alt="" />
+                    <a href={`https://osu.ppy.sh/users/${props.profil.id}`} target="_blank"><img src={props.profil.avatar_url} alt="" /></a>
                     <div className='head'>
-                        <h1>{props.profil.username}</h1>
+                        <a href={`https://osu.ppy.sh/users/${props.profil.id}`} target="_blank"><h1>{props.profil.username}</h1></a>
                         <div className='rank-container'>
                             <p className='rank'><img src="https://img.icons8.com/color/48/000000/earth-planet.png" alt="" />#{props.profil.statistics.global_rank}</p>
                             <p className='flag-container'><img className='flag' src={`https://flagcdn.com/${props.profil.country_code.toLowerCase()}.svg`} alt="" />{`#${props.profil.statistics.country_rank}`}</p>
@@ -48,7 +48,7 @@ const ProfilContainer = (props) => {
                         </li>
                     </ul>
                 </div>
-                <SearchBar token={props.token} setProfil={props.setProfil} setChargedProfil={props.setChargedProfil} />
+                <SearchBar token={props.token} setProfil={props.setProfil} chargedProfil={props.chargedProfil} setChargedProfil={props.setChargedProfil} />
             </div>
             <aside>
                 <ul className='second-stats'>
@@ -61,8 +61,8 @@ const ProfilContainer = (props) => {
                         <p>{props.profil.statistics.ranked_score}</p>
                     </li>
                     <li>
-                        <p>Temps de jeu</p>
-                        <p>{props.profil.statistics.play_time}</p>
+                        <p>Temps de jeu <span className='time'>(heures)</span></p>
+                        <p>{(props.profil.statistics.play_time / 3600).toFixed(0) }</p>
                     </li>
                     <li>
                         <p>Nombres de parties</p>
@@ -102,6 +102,9 @@ const ProfilContainer = (props) => {
             {
                 props.finalStats !== undefined ? <ChartComponent rank={props.finalStats}></ChartComponent> : ""
             }    
+            {
+                 props.finalStats !== undefined && <LineChart creator={props.finalStats.creator} />
+            }
             </div>
 
            
